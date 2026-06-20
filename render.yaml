@@ -1,0 +1,25 @@
+# Render Blueprint — opsional, bisa import saat buat Web Service
+services:
+  - type: web
+    name: kafe-coffee-shop
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    healthCheckPath: /
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_SSLMODE
+        value: require
+      - key: SUPABASE_STORAGE_BUCKET
+        value: menu-images
+      # Isi manual di Render Dashboard:
+      # APP_KEY, APP_URL, DB_HOST, DB_PASSWORD,
+      # SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, dll.
